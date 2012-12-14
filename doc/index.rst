@@ -1,3 +1,4 @@
+
 .. include:: ../README.rst
 
 Contents
@@ -5,10 +6,11 @@ Contents
 
 .. toctree::
    :maxdepth: 4
-   
+
    install
    examples
    modules
+
 
 Indices and tables
 ==================
