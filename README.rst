@@ -3,9 +3,10 @@ Welcome to Agent Based Model used in the paper entitled :
 =========================================================
 
 
-Cooperation Optimized Design for Information Dissemination in Vehicular Networks using Evolutionary Game Theory
-===========================================================================================================================
-:Info: See `the site <http://www-public.it-sudparis.eu/~gauthier/>`_ for more information. See `GitHub <http://bit.ly/TgiaJZ>`_ for the latest source.
+Abhik Banerjee, Vincent Gauthier, Houda Labiod, Hossam Afifi, Cooperation Optimized Design for Information Dissemination in Vehicular Networks using Evolutionary Game Theory, 2012.
+========================================================================================================================================================================================
+
+:Info: See `the site <http://www-public.it-sudparis.eu/~gauthier/>`_ for more information. See `GitHub <http://bit.ly/TgiaJZ>`_ for the latest source and `Online Documentation <https://cooperativenetworking.readthedocs.org/en/latest/>`_ for the lastest update on the package documentation.
 :Author: Vincent Gauthier
 :Maintainer: Vincent Gauthier <vgauthier@luxbulb.org>
 
