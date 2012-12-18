@@ -18,7 +18,7 @@ This Toolbox include:
 
 - Agent based model use in [BAN12]_ in the simulation directory
 
-- Various examples used [BAN12]_ could be found in the example directory
+- Various simulation examples used in [BAN12]_ could be found in the example directory
 
 - Human Based Mobility Models in the complex_systems directory
 	- Truncated Levy Flight Model [Rhee08]_
