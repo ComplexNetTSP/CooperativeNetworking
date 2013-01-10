@@ -6,7 +6,7 @@ Welcome to Agent Based Model used in the paper entitled :
 Abhik Banerjee, Vincent Gauthier, Houda Labiod, Hossam Afifi, Cooperation Optimized Design for Information Dissemination in Vehicular Networks using Evolutionary Game Theory, 2012.
 ========================================================================================================================================================================================
 
-:Info: See `the site <http://www-public.it-sudparis.eu/~gauthier/>`_ for more information. See `GitHub <http://bit.ly/TgiaJZ>`_ for the latest source and `Online Documentation <https://cooperativenetworking.readthedocs.org/en/latest/>`_ for the lastest update on the package documentation.
+:Info: See `the site <http://complex.luxbulb.org>`_ for more information. See `GitHub <http://bit.ly/TgiaJZ>`_ for the latest source and `Online Documentation <https://cooperativenetworking.readthedocs.org/en/latest/>`_ for the lastest update on the package documentation.
 :Author: Vincent Gauthier
 :Maintainer: Vincent Gauthier <vgauthier@luxbulb.org>
 
@@ -42,5 +42,5 @@ nose**) and run **nosetests** or **python setup.py test** in the root
 of the distribution. Tests are located in the *tests/* directory.
 
 .. _sphinx: http://sphinx.pocoo.org/
-.. _`online documentation`: http://complex-systems.readthedocs.org/
+.. _`online documentation`: https://cooperativenetworking.readthedocs.org
 
