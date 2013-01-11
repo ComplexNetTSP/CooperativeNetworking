@@ -26,22 +26,25 @@
 
 __author__ = """\n""".join(['Vincent Gauthier'])
 
+from sumatra.decorators import capture
+
+@capture
 def parameters_sweep(parameters):
     import networkx as nx
     from complex_systems.pgg import PublicGoodGames
     import numpy as np
     import csv
     import itertools
-    from multiprocessing import Pool
+    from IPython.parallel import Client
 
     ####### Init the variables #######
     synergy_step = parameters['synergy_step']
     synergy_max = parameters['synergy_max']
     synergy_min = parameters['synergy_min']
     filename_txt = parameters['filename'] + '_%s.dat' \
-        % parameters['label']
+        % parameters['sumatra_label']
     filename_jpg = parameters['filename'] + '_%s.jpg' \
-        % parameters['label']
+        % parameters['sumatra_label']
     nb_batch = parameters['nb_batch']
     synergy_range = np.arange(synergy_min, synergy_max, synergy_step)
     job_id_list = []
@@ -55,12 +58,17 @@ def parameters_sweep(parameters):
         resultats_raw[entry] = []
 
     ####### Init the Multiprocessing Pool #######
-    pool = Pool()
+    rc = Client(packer='pickle')
+    #rc = Client()
+    dview = rc[:]
+    lbview = rc.load_balanced_view()
+    # Print the number of engine ready
+    print 'Run with ', rc.ids, ' Ipython Engines'
 
     ####### Start the Batch of simualtion #######
     for synergy in synergy_range:
         # Run the Game
-        jobid = [pool.apply_async(run_simu, (parameters, synergy,)) for i in range(nb_batch)]
+        jobid = [lbview.apply_async(run_simu, parameters, synergy) for i in range(nb_batch)]
         job_id_list.append(jobid)
     print 'Job list submited to the scheduler'
 
@@ -68,9 +76,10 @@ def parameters_sweep(parameters):
     for batch in job_id_list:
         for job in batch:
             resultat = job.get()
+            print 'Number of job still runing:', len(rc.outstanding)
             map_id, val1, val2 = resultat
             resultats_raw[map_id].append((val1,val2))
-        print 'Finish the batch of simulation for synergy =', map_id
+        print 'Finish the batch of simulation for synergy=', map_id
     items = resultats_raw.items()
     items.sort()
     ####### Reduce the results #######
